@@ -1,1 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        
+/* Fullscreen Video Background Styles */
+#video-background {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    object-fit: cover;
+}
 
+/* Content Overlay for Readability */
+.content-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* background-color: rgba(35, 14, 93, 0.23);        bg color over video */
+    z-index: -99;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    color: white;
+    background: none; 
+    position: relative;
+}
+
+/* General Component Styles using Tailwind directives */
+.feature-button {
+    /* These apply to the navigation buttons */
+    /* Dark blue button background */
+     background-color: rgba(13, 4, 77, 0.9);        /*  buttons for overview , itinery , etc */
+    
+    /* Tailwind @apply rules */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1rem; /* p-3 sm:p-4 */
+    border-radius: 0.75rem; /* rounded-xl */
+    color: white;                                      /*text over buttons for overview , itinery , etc  */              
+    font-weight: 600; /* font-semibold */
+    box-shadow: 0 10px 15px -3px rgba(15, 27, 158, 0.118), 0 4px 6px -2px rgba(22, 131, 233, 0.703); /* shadow-lg */
+    transition-duration: 300ms;
+    transition-property: transform;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transform: scale(1);
+}
+
+.feature-button:hover {
+    transform: scale(1.03);
+}
+
+.feature-button:active {
+    transform: scale(0.95);
+}
+
+.content-section {
+    /* Transition for content sections when switching tabs */
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.section-card {
+    /* Standard card style for content areas */
+    /* Tailwind @apply rules */
+    background-color: var(--card-bg);
+    padding: 1.5rem; /* p-6 */
+    border-radius: 1rem; /* rounded-2xl */
+    box-shadow: 0 20px 25px -5px rgba(22, 131, 233, 0.703), 0 10px 10px -5px rgba(146, 190, 27, 0.04); /* shadow-2xl */
+}
