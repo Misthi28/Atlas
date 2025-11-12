@@ -1,1 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Travel Dashboard</title>
+    
+    <!-- IMPORTANT: This line links to the external CSS file -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Load external dependencies (Tailwind CDN and Lucide Icons) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    
+    <!-- Video Background and Overlay -->
+    <video autoplay muted loop id="video-background">
+        <!-- Make sure 'WhatsApp Video 2025-11-12 at 14.02.14_1c2e71ed.mp4' is in the same directory -->
+        <source src="atlas_vdo.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <!-- Dark overlay to ensure text contrast over the video -->
+    <div class="content-overlay"></div>
 
+    <!-- Header & Destination Selector -->
+    <header class="sticky top-0 bg-primary/80 backdrop-blur-sm p-4 z-10 shadow-2xl">
+        <div class="max-w-6xl mx-auto">
+            <h1 class="text-3xl font-extrabold tracking-wider text-secondary mb-3">ATLAS Travel Planner</h1>
+            
+            <!-- Landslide Alert Banner -->
+            <div id="landslide-alert-container" class="mb-4 p-2 px-4 rounded-full font-semibold transition-all duration-500 shadow-lg text-center">
+                <span id="landslide-alert-message" class="flex items-center justify-center space-x-2">
+                    <i data-lucide="info" class="w-5 h-5"></i>
+                    <span>Checking Road Status...</span>
+                </span>
+            </div>
+
+            <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-3">
+                <input
+                    id="destination-input"
+                    type="text"
+                    placeholder="Select your destination (e.g., Mussoorie)"
+                    class="flex-grow p-3 bg-card-bg-light text-white border border-gray-600 rounded-lg shadow-inner focus:ring-2 focus:ring-secondary focus:border-secondary transition duration-150"
+                    list="destination-options"
+                >
+                <button
+                    id="search-button"
+                    class="p-3 bg-accent text-white font-semibold rounded-lg shadow-md hover:bg-accent/80 transition duration-300 transform hover:scale-[1.01] active:scale-95 whitespace-nowrap"
+                >
+                    <i data-lucide="map-pin" class="w-5 h-5 mr-2 inline-block"></i> Configure Trip
+                </button>
+            </div>
+            <!-- Data list for suggested inputs -->
+            <datalist id="destination-options">
+                <option value="Mussoorie"></option>
+                <option value="Landour"></option>
+                <option value="Rishikesh"></option>
+            </datalist>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="max-w-6xl mx-auto p-4 sm:p-6">
+        
+        <!-- Placeholder Message -->
+        <div id="placeholder-message" class="hidden p-10 text-center bg-card-bg rounded-xl shadow-lg mt-8">
+            <i data-lucide="globe" class="mx-auto h-12 w-12 text-gray-400"></i>
+            <h2 class="mt-4 text-2xl font-medium text-white">Start Planning Your Adventure</h2>
+            <p class="mt-2 text-md text-gray-400">Enter a destination above to load the tailored travel dashboard.</p>
+        </div>
+
+        <!-- Dynamic Content Container -->
+        <div id="main-content-area" class="space-y-8 mt-8">
+
+            <!-- Destination Header -->
+            <div class="section-card">
+                <img id="dest-image" class="w-full h-56 object-cover rounded-xl mb-6 shadow-inner" alt="Destination Scenic View" onerror="this.onerror=null; this.src='http…
